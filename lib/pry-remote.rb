@@ -188,10 +188,9 @@ module PryRemote
     def initialize(args = ARGV)
       params = Slop.parse args, :help => true do
         banner "#$PROGRAM_NAME [OPTIONS]"
-
-        on :h, :host, "Host of the server (#{DefaultHost})", true,
+        on :h, :host, "Host of the server (#{DefaultHost})", :argument => :optional,
            :default => DefaultHost
-        on :p, :port, "Port of the server (#{DefaultPort})", true,
+        on :p, :port, "Port of the server (#{DefaultPort})", :argument => :optional,
            :as => Integer, :default => DefaultPort
         on :c, :capture, "Captures $stdout and $stderr from the server (true)",
            :default => true
